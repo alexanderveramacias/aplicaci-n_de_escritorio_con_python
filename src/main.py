@@ -14,6 +14,12 @@ def imprimir_numero(numero):
 def limpiar_pantalla():
     display.delete(0,END)
 
+def imprimir_operadores(operador):
+    global i
+    longitud_operador=len(operador)
+    
+    display.insert(i,operador)
+    i += longitud_operador
 # Botones númericos
 Button(root,text="1",command=lambda:imprimir_numero(1)).grid(row=1,column=0,sticky=W+E)
 Button(root,text="2",command=lambda:imprimir_numero(2)).grid(row=1,column=1,sticky=W+E)
@@ -35,5 +41,13 @@ Button(root,text="AC",command=lambda:limpiar_pantalla()).grid(row=4,column=0,sti
 Button(root,text="0",command=lambda:imprimir_numero(0)).grid(row=4,column=1,sticky=W+E)
 
 Button(root,text="=",command=lambda:imprimir_numero(9)).grid(row=4,column=2,sticky=W+E)
+
+Button(root,text="+",command=lambda:imprimir_operadores("+")).grid(row=1,column=3,sticky=W+E)
+
+Button(root,text="*",command=lambda:imprimir_operadores("*")).grid(row=2,column=3,sticky=W+E)
+
+Button(root,text="/",command=lambda:imprimir_operadores("/")).grid(row=3,column=3,sticky=W+E)
+
+Button(root,text="-",command=lambda:imprimir_operadores("-")).grid(row=4,column=3,sticky=W+E)
 
 root.mainloop()
